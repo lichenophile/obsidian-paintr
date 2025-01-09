@@ -31,12 +31,15 @@ const DEFAULT_SETTINGS: HighlightrSettings = {
 	highlighterStyle: "none",
 	highlighterMethods: "css-classes",
 	highlighters: {
-		"r": "#bf616a",
-		"g": "#a3be8c",
-		"p": "#b48ead",
-		"b": "#81a1c1",
-		"aa": "#a5756233",
-		"o": "#d08770"
+		"Pink": "#FFB8EBA6",
+		"Red": "#FF5582A6",
+		"Orange": "#FFB86CA6",
+		"Yellow": "#FFF3A3A6",
+		"Green": "#BBFABBA6",
+		"Cyan": "#ABF7F7A6",
+		"Blue": "#ADCCFFA6",
+		"Purple": "#D2B3FFA6",
+		"Grey": "#CACFD9A6"
 	},
 	highlighterOrder: [],
 	menuMode: 'normal',
