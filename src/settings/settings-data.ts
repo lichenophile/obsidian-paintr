@@ -28,7 +28,7 @@ export interface HighlightrSettings {
 
 // i'm keeping higlightr's keys so settings can be easily migrated
 const DEFAULT_SETTINGS: HighlightrSettings = {
-	highlighterStyle: "none",
+	highlighterStyle: "realistic",
 	highlighterMethods: "css-classes",
 	highlighters: {
 		"Pink": "#FFB8EBA6",
@@ -42,7 +42,7 @@ const DEFAULT_SETTINGS: HighlightrSettings = {
 		"Grey": "#CACFD9A6"
 	},
 	highlighterOrder: [],
-	menuMode: 'normal',
+	menuMode: 'minimal',
 	cleanSelectors: [],
 	overwriteMarks: true
 };
