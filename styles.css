@@ -180,6 +180,9 @@
 	width: max-content;
 	padding: 3px 3px;
 	overflow-x: hidden;
+	.menu-scroll {
+		flex-direction: row;
+	}
 }
 .menu.painter-plugin-menu-container.minimal .menu-item {
 	padding: 0;
