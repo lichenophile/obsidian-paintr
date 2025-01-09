@@ -1,13 +1,12 @@
 # Painter
-![Obsidian plugin](https://img.shields.io/endpoint?url=https%3A%2F%2Fscambier.xyz%2Fobsidian-endpoints%2Fpainter.json) 
   
-> Paint text different colors  
+> Highlight or paint text in different colors and styles  
   
 ![minimal-menu](./screens/minimal-menu.png)  
 ![normal-menu](./screens/menu-normal.png)  
 ![commands](./screens/commands.png)
 
-Inspired by KraXen72's [css snippet & data.json](https://github.com/chetachiezikeuzor/Highlightr-Plugin/issues/61) to use Highlightr to change text color.  
+A fork of KraXen72's repo that is based on their [css snippet & data.json](https://github.com/chetachiezikeuzor/Highlightr-Plugin/issues/61) to use Highlightr to change text color.  
 The aim of this plugin is to support most features of [Highlightr-Plugin](https://github.com/chetachiezikeuzor/Highlightr-Plugin) as well as changing of the text color.  
 
 ## Improvements over original plugin
