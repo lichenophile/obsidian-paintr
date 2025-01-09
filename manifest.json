@@ -1,11 +1,10 @@
 {
-	"id": "painter",
-	"name": "Painter",
-	"version": "1.1.0",
+	"id": "paintr",
+	"name": "Paintr",
+	"version": "1.1.1",
 	"minAppVersion": "1.5.12",
-	"description": "Paint text different colors",
-	"author": "KraXen72 and Chetachi Ezikeuzor",
-	"authorUrl": "https://github.com/KraXen72",
-	"fundingUrl": "https://ko-fi.com/kraxen72",
+	"description": "Highlight or paint text in different colors and styles",
+	"author": "lichenophile, KraXen72 and Chetachi Ezikeuzor",
+	"authorUrl": "https://github.com/lichenophile",
 	"isDesktopOnly": false
 }
