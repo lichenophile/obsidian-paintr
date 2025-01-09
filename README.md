@@ -7,7 +7,7 @@
 ![normal-menu](./screens/menu-normal.png)  
 ![commands](./screens/commands.png)
 
-Inspired by my [css snippet & data.json](https://github.com/chetachiezikeuzor/Highlightr-Plugin/issues/61) to use Highlightr to change text color.  
+Inspired by KraXen72's [css snippet & data.json](https://github.com/chetachiezikeuzor/Highlightr-Plugin/issues/61) to use Highlightr to change text color.  
 The aim of this plugin is to support most features of [Highlightr-Plugin](https://github.com/chetachiezikeuzor/Highlightr-Plugin) as well as changing of the text color.  
 
 ## Improvements over original plugin
@@ -43,14 +43,11 @@ The aim of this plugin is to support most features of [Highlightr-Plugin](https:
 - Rewrote basically the entire plugin lol
 - added `"use strict"` to minified code to improve performance
 
-## Support plugin development
-If you find this Plugin helpful, consider it's further development or just say a small thank you  
-[![liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/KraXen72) [![kofi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/kraxen72)
-
 ## Migrating from highlightr
 If you've previously used the highlightr plugin, you can migrate your settings by copying:
 - `<vault>/.obsidian/plugins/highlightr-plugin/data.json` =>
 - `<vault>/.obsidian/plugins/painter/data.json`
+Note - this will break settings page previews atm
   
 Then, disable & enable the Painter plugin.
 Make sure to check settings have sucessfully migrated, and if they have, feel free to uninstall highlightr.
