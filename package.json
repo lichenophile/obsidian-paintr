@@ -1,7 +1,7 @@
 {
-	"name": "obsidian-painter",
-	"version": "1.1.0",
-	"description": "Paint text different colors",
+	"name": "obsidian-paintr",
+	"version": "1.1.1",
+	"description": "Highlight or paint text in different colors and styles",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
