@@ -114,9 +114,9 @@ export class PainterSettingTab extends PluginSettingTab {
 			if (this.plugin.settings.highlighterOrder.length === 0) {
 				frag.appendChild(createEl('em', { text: 'Add atleast 1 color to showcase different styles' }))
 			} else {
-				const col = (sample(this.plugin.settings.highlighterOrder) as string).toLowerCase();
+				const col = sample(this.plugin.settings.highlighterOrder);
 				for (const st of HIGHLIGHTER_STYLES) {
-					frag.createDiv({ cls: `highlightr-${st}` }).createEl('mark', { cls: [`hltr-${col}`, 'style-demo'], text: st })
+					frag.createDiv({ cls: `highlightr-${st}` }).createEl('mark', { cls: [`hltr-${col}.toLowerCase()`, 'style-demo'], text: st })
 				}
 			}
 			return frag
