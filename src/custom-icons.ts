@@ -1,5 +1,5 @@
 import { addIcon } from "obsidian";
-import Painter from "./main";
+import paintr from "./main";
 import { HighlightrSettings } from "./settings/settings-data";
 
 export function customHLIcon(color: string) {
@@ -23,15 +23,15 @@ export function customHLIcon(color: string) {
 
 export function createHighlighterIcons(
 	settings: HighlightrSettings,
-	plugin: Painter
+	plugin: paintr
 ) {
 	const highlighterIcons: Record<string, SVGElement> = {
 		// manually paste in the content's of icon.svg whenever it's updated
-		"painter-icon": customHLIcon('currentColor')
+		"paintr-icon": customHLIcon('currentColor')
 	};
 
 	for (const key of plugin.settings.highlighterOrder) {
-		let highlighterpen = `painter-icon-${key}`.toLowerCase();
+		let highlighterpen = `paintr-icon-${key}`.toLowerCase();
 		highlighterIcons[highlighterpen] = customHLIcon(settings.highlighters[key])
 	}
 

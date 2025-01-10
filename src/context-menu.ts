@@ -1,4 +1,4 @@
-import type Painter from "./main";
+import type paintr from "./main";
 import { Menu } from "obsidian";
 import { HighlightrSettings } from "./settings/settings-data";
 import highlighterMenu from "./menu";
@@ -10,17 +10,17 @@ export default function contextMenu(
 	app: EnhancedApp,
 	menu: Menu,
 	editor: EnhancedEditor,
-	plugin: Painter,
+	plugin: paintr,
 	settings: HighlightrSettings
 ): void {
 	const selection = editor.getSelection();
 
 	menu.addSeparator()
 	menu.addItem((item: MenuItem & { dom: HTMLElement }) => {
-		item.dom.addClass("painter-plugin-menu-button");
+		item.dom.addClass("paintr-plugin-menu-button");
 		item
 			.setTitle(actionPaint)
-			.setIcon("painter-icon")
+			.setIcon("paintr-icon")
 			.onClick(async () => highlighterMenu(app, settings, editor, plugin.eraseHighlight.bind(plugin)));
 	});
 

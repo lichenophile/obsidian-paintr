@@ -21,15 +21,15 @@ const highlighterMenu = (
 	const cursor = editor.getCursor("from");
 	
 	const menu = new Menu() as EnhancedMenu;
-	menu.dom.addClass("painter-plugin-menu-container");
+	menu.dom.addClass("paintr-plugin-menu-container");
 	if (settings.menuMode === 'minimal') menu.dom.addClass('minimal'); 
 
 	settings.highlighterOrder.forEach((color) => {
 		const lowerCaseColor = color.toLowerCase()
 		menu.addItem(item => {
 			item.setTitle(color);
-			item.setIcon(`painter-icon-${lowerCaseColor}`)
-			item.onClick(() => app.commands.executeCommandById(`painter:paint-${lowerCaseColor}`));
+			item.setIcon(`paintr-icon-${lowerCaseColor}`)
+			item.onClick(() => app.commands.executeCommandById(`paintr:paint-${lowerCaseColor}`));
 		});
 	});
 	if (editor.getSelection()) {

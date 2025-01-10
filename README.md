@@ -1,4 +1,4 @@
-# Painter
+# Paintr
   
 > Highlight or paint text in different colors and styles  
   
@@ -45,10 +45,10 @@ The aim of this plugin is to support most features of [Highlightr-Plugin](https:
 ## Migrating from highlightr
 If you've previously used the highlightr plugin, you can migrate your settings by copying:
 - `<vault>/.obsidian/plugins/highlightr-plugin/data.json` =>
-- `<vault>/.obsidian/plugins/painter/data.json`
+- `<vault>/.obsidian/plugins/paintr/data.json`
 Note - this will break settings page previews atm
   
-Then, disable & enable the Painter plugin.
+Then, disable & enable the Paintr plugin.
 Make sure to check settings have sucessfully migrated, and if they have, feel free to uninstall highlightr.
 
 ## css-classes vs. inline-styles: which should you choose?
@@ -56,7 +56,7 @@ The settings allow you to select between two highlight styles, `css-classes` and
 Here is their comparison:  
 ### css-classes
 - Uses `<mark class="hltr-colorname">content</mark>`
-- Painter plugin injects a stylesheet which colors these
+- Paintr plugin injects a stylesheet which colors these
 - 👍 More flexible:
   - Re-defining a color with the same name will update existing highlights
   - Changing the highlight style will update all existing highlights as well

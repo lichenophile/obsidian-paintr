@@ -1,4 +1,4 @@
-import type Painter from "../main";
+import type paintr from "../main";
 import {
 	App,
 	Setting,
@@ -15,12 +15,12 @@ import { hexSuffixToNum, numToHexSuffix, sample } from "src/utils";
 import { customHLIcon } from "src/custom-icons";
 import Sortable from 'sortablejs';
 
-export class PainterSettingTab extends PluginSettingTab {
-	plugin: Painter;
+export class paintrSettingTab extends PluginSettingTab {
+	plugin: paintr;
 	appendMethod: string;
 	topScroll: number | null;
 
-	constructor(app: App, plugin: Painter) {
+	constructor(app: App, plugin: paintr) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -57,7 +57,7 @@ export class PainterSettingTab extends PluginSettingTab {
 					.onChange((highlightrMethod) => {
 						this.plugin.settings.highlighterMethods = highlightrMethod;
 						setTimeout(() => {
-							dispatchEvent(new Event("painter:refreshstyles"));
+							dispatchEvent(new Event("paintr:refreshstyles"));
 						}, 100);
 						this.plugin.saveSettings();
 					});
@@ -65,9 +65,9 @@ export class PainterSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName('Additional CSS selectors to clear')
-			.setDesc(`The "Painter: Clear" command clears all "mark" elements. However, you might wish to remove other elements as well. Add CSS Selectors to be cleaned here (one per line)`)
+			.setDesc(`The "paintr: Clear" command clears all "mark" elements. However, you might wish to remove other elements as well. Add CSS Selectors to be cleaned here (one per line)`)
 			.addTextArea(ta => {
-				ta.inputEl.addClass('painter-plugin-settings-textarea')
+				ta.inputEl.addClass('paintr-plugin-settings-textarea')
 				ta.setValue(this.plugin.settings.cleanSelectors.join("\n"))
 				ta.onChange(val => {
 					const selectors = val.split("\n").map(i => i.trim()).filter(i => i !== "")
@@ -92,7 +92,7 @@ export class PainterSettingTab extends PluginSettingTab {
 
 		stylesSetting
 			.setName("Choose highlight style")
-			.setClass('painter-plugin-setting-item-pick-hl')
+			.setClass('paintr-plugin-setting-item-pick-hl')
 			.setDesc(
 				`Depending on your design aesthetic, you may want to customize the style of your highlights. Choose from an assortment of different highlighter styles by using the dropdown. Depending on your theme, this plugin's CSS may be overriden.`
 			)
@@ -122,7 +122,7 @@ export class PainterSettingTab extends PluginSettingTab {
 			return frag
 		};
 
-		let styleDemoEl = createEl("p", { cls: 'painter-plugin-style-demo' });
+		let styleDemoEl = createEl("p", { cls: 'paintr-plugin-style-demo' });
 		styleDemoEl.appendChild(styleDemo())
 		const reRollBtn = createEl('button', { text: 'try different color' })
 		reRollBtn.addEventListener('click', () => {
@@ -136,7 +136,7 @@ export class PainterSettingTab extends PluginSettingTab {
 
 		addColorSetting
 			.setName("Choose highlight colors")
-			.setClass("painter-plugin-setting-item-pick-col")
+			.setClass("paintr-plugin-setting-item-pick-col")
 			.setDesc(
 				`Create new highlight colors by providing a color name and using the color picker to set the hex code value. Don't forget to save the color before exiting the color picker. Drag and drop the highlight color to change the order for your highlighter component.`
 			);
@@ -170,11 +170,11 @@ export class PainterSettingTab extends PluginSettingTab {
 
 		const colorNameInput = new TextComponent(addColorSetting.controlEl);
 		colorNameInput.setPlaceholder("Color name");
-		colorNameInput.inputEl.addClass("painter-plugin-settings-color");
+		colorNameInput.inputEl.addClass("paintr-plugin-settings-color");
 
 		const colorValueInput = new TextComponent(addColorSetting.controlEl)
 			.setPlaceholder("Color HEX: Click off color picker to update");
-		colorValueInput.inputEl.addClass("painter-plugin-settings-value");
+		colorValueInput.inputEl.addClass("paintr-plugin-settings-value");
 		colorValueInput.inputEl.setCssStyles({ width: '5rem' })
 
 		const colorAlphaInput = new TextComponent(addColorSetting.controlEl)
@@ -219,12 +219,12 @@ export class PainterSettingTab extends PluginSettingTab {
 			updateColorControls()
 		})
 
-		const colPreviewWrap = addColorSetting.controlEl.createDiv({ cls: 'painter-plugin-color-preview' })
-		colPreviewEl = colPreviewWrap.createDiv({ cls: 'painter-plugin-color-preview2' })
+		const colPreviewWrap = addColorSetting.controlEl.createDiv({ cls: 'paintr-plugin-color-preview' })
+		colPreviewEl = colPreviewWrap.createDiv({ cls: 'paintr-plugin-color-preview2' })
 
 		new ButtonComponent(addColorSetting.controlEl)
-			.setClass("painter-plugin-settings-button")
-			.setClass("painter-plugin-settings-button-add")
+			.setClass("paintr-plugin-settings-button")
+			.setClass("paintr-plugin-settings-button-add")
 			.setIcon("save")
 			.setTooltip("Save")
 			.onClick(async () => {
@@ -232,9 +232,9 @@ export class PainterSettingTab extends PluginSettingTab {
 				let colorValue = colorValueInput.getValue();
 
 				if (colorName.length > 50) colorName = colorName.slice(0, 51)
-				if (!colorName) { new Notice("Painter: Color name missing"); return; }
-				if (!colorValue) { new Notice("Painter: HEX code missing"); return; }
-				if (!colorAlphaInput) { new Notice("Painter: Alpha value missing"); return; }
+				if (!colorName) { new Notice("paintr: Color name missing"); return; }
+				if (!colorValue) { new Notice("paintr: HEX code missing"); return; }
+				if (!colorAlphaInput) { new Notice("paintr: Alpha value missing"); return; }
 				if (!this.plugin.settings.highlighterOrder.includes(colorName)) {
 					this.plugin.settings.highlighterOrder.push(colorName);
 				}
@@ -243,29 +243,29 @@ export class PainterSettingTab extends PluginSettingTab {
 				this.topScroll = containerEl.scrollTop
 				this.display();
 
-				dispatchEvent(new Event("painter:refreshstyles"));
+				dispatchEvent(new Event("paintr:refreshstyles"));
 			});
 
 		updateColorControls()
 		const highlightersContainer = containerEl.createEl("div", {
-			attr: { id: "painter-plugin-sortable-group" },
+			attr: { id: "paintr-plugin-sortable-group" },
 		});
 
 		this.plugin.settings.highlighterOrder.forEach((highlighter, index, arr) => {
-			const settingItem = highlightersContainer.createEl("div", { cls: "painter-plugin-item-color" });
-			const handle = settingItem.createDiv({ cls: "painter-plugin-setting-handle" })
+			const settingItem = highlightersContainer.createEl("div", { cls: "paintr-plugin-item-color" });
+			const handle = settingItem.createDiv({ cls: "paintr-plugin-setting-handle" })
 			setIcon(handle, 'grip-vertical')
-			const colorIcon = settingItem.createEl("span", { cls: "painter-plugin-setting-icon" });
+			const colorIcon = settingItem.createEl("span", { cls: "paintr-plugin-setting-icon" });
 			colorIcon.appendChild(customHLIcon(this.plugin.settings.highlighters[highlighter]));
 
 			new Setting(settingItem)
-				.setClass("painter-plugin-color-setting-item")
+				.setClass("paintr-plugin-color-setting-item")
 				.setName(highlighter)
 				.setDesc(this.plugin.settings.highlighters[highlighter])
 				.addButton(button => {
 					button
-						.setClass('painter-plugin-settings-button')
-						.setClass('painter-plugin-settings-button-edit')
+						.setClass('paintr-plugin-settings-button')
+						.setClass('paintr-plugin-settings-button-edit')
 						.setTooltip('edit')
 						.setIcon('wrench')
 						.onClick(() => {
@@ -278,8 +278,8 @@ export class PainterSettingTab extends PluginSettingTab {
 				})
 				.addButton((button) => {
 					button
-						.setClass("painter-plugin-settings-button")
-						.setClass("painter-plugin-settings-button-delete")
+						.setClass("paintr-plugin-settings-button")
+						.setClass("paintr-plugin-settings-button-delete")
 						.setIcon("trash-2")
 						.setTooltip("Remove")
 						.onClick(async () => {
@@ -290,7 +290,7 @@ export class PainterSettingTab extends PluginSettingTab {
 							delete this.plugin.settings.highlighters[highlighter];
 							this.plugin.settings.highlighterOrder.remove(highlighter);
 							setTimeout(() => {
-								dispatchEvent(new Event("painter:refreshstyles"));
+								dispatchEvent(new Event("paintr:refreshstyles"));
 							}, 100);
 							await this.plugin.saveSettings();
 							this.topScroll = containerEl.scrollTop
@@ -305,8 +305,8 @@ export class PainterSettingTab extends PluginSettingTab {
 		const sort = new Sortable(highlightersContainer, {
 			group: 'shared',
 			animation: 150,
-			handle: '.painter-plugin-setting-handle',
-			ghostClass: 'painter-plugin-ghost',
+			handle: '.paintr-plugin-setting-handle',
+			ghostClass: 'paintr-plugin-ghost',
 			onSort: ({ oldIndex, newIndex }) => {
 				if (typeof oldIndex === "undefined" || typeof newIndex === "undefined") return;
 				const [removed] = this.plugin.settings.highlighterOrder.splice(oldIndex, 1);

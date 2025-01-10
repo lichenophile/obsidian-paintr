@@ -12,11 +12,11 @@ export function createStyles(settings: HighlightrSettings) {
 		`
 	}
 	removeStyles()
-	document.head.createEl('style', { attr: { id: 'painter-styles' }, text: css })
+	document.head.createEl('style', { attr: { id: 'paintr-styles' }, text: css })
 }
 
 export function removeStyles() {
-	const el = document.getElementById("painter-styles")
+	const el = document.getElementById("paintr-styles")
 	if (el !== null) el.remove()
 }
 

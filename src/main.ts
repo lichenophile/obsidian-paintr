@@ -2,7 +2,7 @@ import { Plugin } from "obsidian";
 import type { PluginManifest, Menu, Editor } from "obsidian";
 import type { EnhancedApp, EnhancedEditor } from "./settings/settings-types";
 
-import { PainterSettingTab } from "./settings/settings-tabs";
+import { paintrSettingTab } from "./settings/settings-tabs";
 import DEFAULT_SETTINGS, { HIGHLIGHTER_STYLES, HighlightrSettings } from "./settings/settings-data";
 import highlighterMenu from "./menu";
 import contextMenu from "./context-menu";
@@ -18,14 +18,14 @@ type CommandPlot = {
 	suffix: string;
 };
 
-export default class Painter extends Plugin {
+export default class paintr extends Plugin {
 	app: EnhancedApp;
 	editor: EnhancedEditor;
 	manifest: PluginManifest;
 	settings: HighlightrSettings;
 
 	async onload() {
-		console.log(`Painter v${this.manifest.version} loaded`);
+		console.log(`Paintr v${this.manifest.version} loaded`);
 
 		await this.loadSettings();
 
@@ -38,19 +38,19 @@ export default class Painter extends Plugin {
 			this.app.workspace.on("editor-menu", this.handleHighlighterInContextMenu.bind(this))
 		);
 		
-		this.addSettingTab(new PainterSettingTab(this.app, this));
+		this.addSettingTab(new paintrSettingTab(this.app, this));
 
 		this.addCommand({
 			id: "open-menu",
 			name: actionMenu,
-			icon: "painter-icon",
+			icon: "paintr-icon",
 			editorCallback: (editor: EnhancedEditor) => {
-				if (document.querySelector(".menu.painter-plugin-menu-container")) return;
+				if (document.querySelector(".menu.paintr-plugin-menu-container")) return;
 				highlighterMenu(this.app, this.settings, editor, this.eraseHighlight.bind(this))
 			},
 		});
 
-		addEventListener("painter:refreshstyles", () => {
+		addEventListener("paintr:refreshstyles", () => {
 			this.reloadStyles(this.settings);
 			this.generateCommands(this.editor);
 			createHighlighterIcons(this.settings, this);
@@ -107,7 +107,7 @@ export default class Painter extends Plugin {
 			this.addCommand({
 				id: `paint-${lowerCaseColor}`,
 				name: highlighterKey,
-				icon: `painter-icon-${lowerCaseColor}`,
+				icon: `paintr-icon-${lowerCaseColor}`,
 				editorCallback: async (editor: EnhancedEditor) => {
 					this.applyCommand(command, editor);
 				},
@@ -140,7 +140,7 @@ export default class Painter extends Plugin {
 
 	onunload() {
 		removeStyles()
-		console.log("Painter unloaded");
+		console.log("Paintr unloaded");
 	}
 
 	handleHighlighterInContextMenu(
