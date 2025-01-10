@@ -15,7 +15,7 @@
 	.highlightr-realistic
 )
 :is(
-	:is(mark[class], mark[style]):not(.style-demo),
+	mark:not(.style-demo),
 	> mark,
 	span.cm-highlight,
 	.markdown-preview-view mark
@@ -25,18 +25,19 @@
 
 
 /* none */
-.highlightr-none :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-none .markdown-preview-view :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-none > mark.style-demo,
-.highlightr-none span.cm-highlight {
+.highlightr-none :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-none .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+/* .highlightr-none span.cm-highlight */
+.highlightr-none > mark.style-demo {
+	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
 }
 
 /* text-color */
-.highlightr-text-color :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-text-color .markdown-preview-view :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-text-color > mark.style-demo,
-.highlightr-text-color span.cm-highlight {
+.highlightr-text-color :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-text-color .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+/* .highlightr-text-color span.cm-highlight, */
+.highlightr-text-color > mark.style-demo {
 	color: var(--hltr-color);
 	background: transparent;
 	border-radius: 0;
@@ -44,10 +45,10 @@
 }
 
 /*lowlight*/
-.highlightr-lowlight :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-lowlight .markdown-preview-view :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-lowlight > mark.style-demo,
-.highlightr-lowlight span.cm-highlight {
+.highlightr-lowlight :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-lowlight .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+/* .highlightr-lowlight span.cm-highlight, */
+.highlightr-lowlight > mark.style-demo {
 	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
 	--lowlight-background: var(--background-primary);
@@ -57,26 +58,26 @@
 		var(--lowlight-background) 30%) !important;
 }
 
-.highlightr-lowlight .workspace-split.mod-left-split mark,
+/* .highlightr-lowlight .workspace-split.mod-left-split mark,
 .highlightr-lowlight .workspace-split.mod-left-split span.cm-highlight,
 .highlightr-lowlight .workspace-split.mod-left-split .markdown-preview-view mark,
 .highlightr-lowlight .workspace-split.mod-right-split mark,
 .highlightr-lowlight .workspace-split.mod-right-split span.cm-highlight,
 .highlightr-lowlight .workspace-split.mod-right-split .markdown-preview-view mark {
 	--lowlight-background: var(--background-secondary);
-}
+} */
 
-.highlightr-lowlight .admonition-content mark,
+/* .highlightr-lowlight .admonition-content mark,
 .highlightr-lowlight .admonition-content span.cm-highlight,
 .highlightr-lowlight .admonition-content > .markdown-preview-view mark {
 	--lowlight-background: var(--background-primary-alt);
-}
+} */
 
 /*floating*/
-.highlightr-floating :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-floating .markdown-preview-view :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-floating > mark.style-demo,
-.highlightr-floating span.cm-highlight {
+.highlightr-floating :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-floating .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+/* .highlightr-floating span.cm-highlight, */
+.highlightr-floating > mark.style-demo {
 	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
 	--floating-background: var(--background-primary);
@@ -87,24 +88,24 @@
 		var(--floating-background) 28%) !important;
 }
 
-.highlightr-floating .workspace-split.mod-left-split mark,
+/* .highlightr-floating .workspace-split.mod-left-split mark,
 .highlightr-floating .workspace-split.mod-left-split span.cm-highlight,
 .highlightr-floating .workspace-split.mod-left-split .markdown-preview-view mark,
 .highlightr-floating .workspace-split.mod-right-split mark,
 .highlightr-floating .workspace-split.mod-right-split span.cm-highlight,
 .highlightr-floating .workspace-split.mod-right-split .markdown-preview-view mark {
 	--floating-background: var(--background-secondary);
-}
+} */
 
-.highlightr-floating .admonition-content mark,
+/* .highlightr-floating .admonition-content mark,
 .highlightr-floating .admonition-content span.cm-highlight,
 .highlightr-floating .admonition-content > .markdown-preview-view mark {
 	--floating-background: var(--background-primary-alt);
-}
+} */
 
 /*rounded*/
-.highlightr-rounded :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-rounded .markdown-preview-view :is(mark[class], mark[style]):not(.style-demo),
+.highlightr-rounded :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-rounded .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
 .highlightr-rounded > mark.style-demo {
 	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
@@ -115,7 +116,7 @@
 	box-decoration-break: clone;
 }
 
-.highlightr-rounded span.cm-highlight {
+/* .highlightr-rounded span.cm-highlight {
 	border-radius: 0.2em;
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;
@@ -130,11 +131,11 @@
 	padding-right: 0.15em;
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;
-}
+} */
 
 /*realistic*/
-.highlightr-realistic :is(mark[class], mark[style]):not(.style-demo),
-.highlightr-realistic .markdown-preview-view :is(mark[class], mark[style]):not(.style-demo),
+.highlightr-realistic :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-realistic .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
 .highlightr-realistic > mark.style-demo {
 	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
@@ -146,12 +147,12 @@
 	text-shadow: 0 0 0.75em var(--background-primary-alt);
 }
 
-.highlightr-realistic.hide-tokens .cm-s-obsidian span.cm-highlight,
+/* .highlightr-realistic.hide-tokens .cm-s-obsidian span.cm-highlight,
 .hide-tokens.highlightr-realistic .cm-s-obsidian span.cm-highlight {
 	border-radius: 0.8em 0.3em;
 }
 
-/* .highlightr-realistic .cm-s-obsidian span.cm-highlight {
+.highlightr-realistic .cm-s-obsidian span.cm-highlight {
 	padding: 0.15em 0.25em;
 	-webkit-box-decoration-break: clone;
 	box-decoration-break: clone;
