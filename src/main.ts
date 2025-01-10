@@ -77,7 +77,7 @@ export default class paintr extends Plugin {
 		const styleKey = style === 'text-color' ? 'color' : 'background-color';
 		const attr = mode === "css-classes" 
 			? `class="hltr-${key.toLowerCase()}"` 
-			: `style="speak:;${styleKey}:${this.settings.highlighters[key]}"`;
+			: `style="paintr:;${styleKey}:${this.settings.highlighters[key]}"`;
 		return `<${elem} ${attr}>`
 	}
 

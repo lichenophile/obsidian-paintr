@@ -25,8 +25,8 @@
 
 
 /* none */
-.highlightr-none :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
-.highlightr-none .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-none :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
+.highlightr-none .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
 /* .highlightr-none span.cm-highlight */
 .highlightr-none > mark.style-demo {
 	color: var(--text-normal, inherit);
@@ -34,8 +34,8 @@
 }
 
 /* text-color */
-.highlightr-text-color :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
-.highlightr-text-color .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-text-color :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
+.highlightr-text-color .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
 /* .highlightr-text-color span.cm-highlight, */
 .highlightr-text-color > mark.style-demo {
 	color: var(--hltr-color);
@@ -45,8 +45,8 @@
 }
 
 /*lowlight*/
-.highlightr-lowlight :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
-.highlightr-lowlight .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-lowlight :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
+.highlightr-lowlight .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
 /* .highlightr-lowlight span.cm-highlight, */
 .highlightr-lowlight > mark.style-demo {
 	color: var(--text-normal, inherit);
@@ -74,8 +74,8 @@
 } */
 
 /*floating*/
-.highlightr-floating :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
-.highlightr-floating .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-floating :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
+.highlightr-floating .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
 /* .highlightr-floating span.cm-highlight, */
 .highlightr-floating > mark.style-demo {
 	color: var(--text-normal, inherit);
@@ -104,8 +104,8 @@
 } */
 
 /*rounded*/
-.highlightr-rounded :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
-.highlightr-rounded .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-rounded :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
+.highlightr-rounded .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
 .highlightr-rounded > mark.style-demo {
 	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
@@ -134,8 +134,8 @@
 } */
 
 /*realistic*/
-.highlightr-realistic :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
-.highlightr-realistic .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="speak:;"]):not(.style-demo),
+.highlightr-realistic :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
+.highlightr-realistic .markdown-preview-view :is(mark[class^="hltr-"], mark[style^="paintr:;"]):not(.style-demo),
 .highlightr-realistic > mark.style-demo {
 	color: var(--text-normal, inherit);
 	background-color: var(--hltr-color);
