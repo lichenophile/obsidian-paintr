@@ -6,18 +6,22 @@
 ![normal-menu](./screens/menu-normal.png)  
 ![commands](./screens/commands.png)
 
-A fork of KraXen72's repo that is based on their [css snippet & data.json](https://github.com/chetachiezikeuzor/Highlightr-Plugin/issues/61) to use Highlightr to change text color.  
 The aim of this plugin is to support most features of [Highlightr-Plugin](https://github.com/chetachiezikeuzor/Highlightr-Plugin) as well as changing of the text color.  
 
+I have made some additional fixes and plan to add extra styles in the future.
+
 ## Improvements over original plugin
-### New features
+### Features
+- Changed to not modify default highlighter style, allowing plain native highlights
+- Comes configured with Highlightr's default colors
+### KraXen72's features
 - Added `text-color` higlight option
 - Added `minimal` menu style - only show icons in one line (with `title` attributes)
 - Smarter selection (adapted from [Smarter MD Hotkeys](https://github.com/chrisgrieser/obsidian-smarter-md-hotkeys))
-  - `Inline code` signifies the part of the text being selected. `|` is a cursor without selection.
-  - **Auto-select word:** "hello t`|`here world!" => "hello `there` world!"
-  - **Trim selection to nearest word:** "what` is` up?" => "what `is` up?"
-  - You are still able to paint a certain part of a word: "h`ell`o" => "h`ell`o"
+  - Guide: `Inline code` below signifies the part of the text being selected. `|` signifies a cursor without selection.
+    - **Auto-select word:** "hello t`|`here world!" => "hello `there` world!"
+    - **Trim selection to nearest word:** "what` is` up?" => "what `is` up?"
+    - You are still able to paint a certain part of a word: "h`ell`o" => "h`ell`o"
 - Better `Clear` (formerly `Remove higlight`) command
   - Added it to the highlighting menu as well	
   - In settings, you can configure custom CSS selectors to remove alongside any `mark` elements
@@ -26,12 +30,16 @@ The aim of this plugin is to support most features of [Highlightr-Plugin](https:
 - Added dynamic highlight preview in settings (shows with your colors)
   
 ### Fixes
+- Fixed broken `minimal` menu
+- Fixed settings preview when uppercase letters exist
+- Fixed inconsistant styling of native highlighter by making this plugin not modify them at all
+### KraXen72's Fixes
 - [Works in Obsidian's Table editor](https://github.com/chetachiezikeuzor/Highlightr-Plugin/issues/90)
 - [Removed extra spaces after marks](https://github.com/chetachiezikeuzor/Highlightr-Plugin/pull/40)
 - Allows overwriting previous highlights (setting) - similar to this [pull request](https://github.com/chetachiezikeuzor/Highlightr-Plugin/pull/63)
 - Highlightr styles now use css variables instead of hardcoded values
   
-### Other
+### KraXen72's Other
 - Cleaned up file structure & move to esbuild instead of rollup
 - Removed a bunch of unnecessary code & styles, overall cleanup & rewrite
   - Removed a bunch of custom icons in favor of normal obsidian icons	
@@ -73,12 +81,19 @@ In a future plugin release, there will likely be an option to generate this styl
   - `background-color` highlights will not turn into `color` (`text-color` in settings) and vice versa.
 - slightly easier to use outside of obsidian
   
-Some people might prefer this method, so i kept it in.  
+Some people might prefer this method.  
 Feel free to experiment with them to find the one best for your use-case.
 
 ## i can't see the color previews in context menu
 ![menu](./screens/menu-native.png)  
 If your context menu looks like this and not like the one in the screenshots above, in Obsidian settings, `Appearance` > `Advanced`, turn off `Native menus`.
+
+## Compatability
+#### Prism theme
+When using `css-classes` mode, prism styling may add to or override some styles (depending on your highlight settings for Prism within Style Settings), if you wish to fix this behaviour:
+1. Open `.obsidian/themes/Prism/theme.css`
+2. replace all `mark[class]` with `mark[class]:not([class^="hltr-"])`
+This will allow both Prism classes and Paintr classes to be used without interfering with one another.
   
 ## Credits
 - [Highlightr-Plugin](https://github.com/chetachiezikeuzor/Highlightr-Plugin) released under [MPLv2](./LICENSE) license. support: [ko-fi](https://ko-fi.com/chetachi)
